@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from pymilvus import connections, utility, FieldSchema, CollectionSchema, DataType, Collection, model
+from pymilvus import connections, utility, FieldSchema, CollectionSchema, DataType, Collection
 from sentence_transformers import SentenceTransformer
 
 load_dotenv()
