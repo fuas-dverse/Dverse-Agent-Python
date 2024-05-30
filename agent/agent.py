@@ -36,11 +36,23 @@ class Agent:
         self.__kafka_manager.start_consuming()
         self.__status_manager.start_looping()
 
-    def send_response_to_ui(self, message):
+    def send_response_to_next(self, initial, message):
         """
         Send a response message to the UI.
 
         Args:
-            message (dict[str, str]): The message to send to the UI.
+            initial (dict[str, Any]): Initial message to send to the UI.
+            message (dict[str, Any]): The message to send to the UI.
         """
-        self.__kafka_manager.send_message(f"{self.name}.output", {self.name: message})
+        initial[self.name] = message
+
+        # Retrieve the steps from the initial dictionary
+        steps = initial.get("classifier-agent").get("steps")
+
+        step = steps.index(self.name)
+
+        if step == len(steps) - 1:
+            self.__kafka_manager.send_message(f"{self.name}.output", initial)
+        else:
+            next_agent = steps[step + 1]
+            self.__kafka_manager.send_message(f"{next_agent}.input", initial)

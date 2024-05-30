@@ -1,3 +1,4 @@
+import json
 import os
 import threading
 from confluent_kafka import Producer, Consumer
@@ -121,4 +122,8 @@ class KafkaManager:
             msg = self.consumer.poll(timeout=1.0)
             if msg is None or msg.error():
                 continue
-            callback(msg)
+
+            x = msg.value().decode('utf-8')
+            x = x.replace("'", "\"")
+            message = json.loads(x)
+            callback(message)
