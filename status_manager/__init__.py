@@ -1,1 +1,1 @@
-from status_manager.status_manager import StatusManager
+from .status_manager import StatusManager

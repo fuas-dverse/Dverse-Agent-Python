@@ -1,19 +1,19 @@
 from slugify import slugify
-from database_manager.database_manager import DatabaseManager
-from kafka_manager import KafkaManager
-from status_manager import StatusManager
+from ..database_manager import DatabaseManager
+from ..kafka_manager import KafkaManager
+from ..status_manager import StatusManager
 
 
 class Agent:
     def __init__(self, name, description, topics, output_format, callback=None):
         """
-        Initialize an agent with specified attributes.
+        Initialize an agentDVerse with specified attributes.
 
         Args:
-            name (str): Name of the agent.
-            description (str): Description of the agent.
-            topics (list): List of topics the agent handles.
-            output_format (str): Desired output format for the agent (e.g., "pdf", "link", "image").
+            name (str): Name of the agentDVerse.
+            description (str): Description of the agentDVerse.
+            topics (list): List of topics the agentDVerse handles.
+            output_format (str): Desired output format for the agentDVerse (e.g., "pdf", "link", "image").
             callback (func): Callback function to call when a message is received.
         """
         self.name = slugify(name)
@@ -47,7 +47,7 @@ class Agent:
         initial[self.name] = message
 
         # Retrieve the steps from the initial dictionary
-        steps = initial.get("classifier-agent").get("steps")
+        steps = initial.get("classifier-agentDVerse").get("steps")
 
         step = steps.index(self.name)
 
