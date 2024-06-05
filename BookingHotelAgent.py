@@ -13,6 +13,7 @@ nltk_download('treebank')
 tagger = PerceptronTagger()
 locationtagger = treebank_chunk_parser(tagger)
 
+booking_url:str="https://booking-com.p.rapidapi.com/v1/hotels"
 
 class BookingHotelAgent(Agent):
     def __init__(self, name="booking_hotel", description="Searches hotels using Booking.com API"):
@@ -62,9 +63,9 @@ class BookingHotelAgent(Agent):
             print(f"Searching hotels in {city}...")
             try:
                 location_data = \
-                requests.get("https://booking-com.p.rapidapi.com/v1/hotels/locations", headers=self.headers,
+                requests.get(booking_url+"/locations", headers=self.headers,
                              params={"name": city, "locale": "en-gb"}).json()[0]
-                hotels = requests.get("https://booking-com.p.rapidapi.com/v1/hotels/search", headers=self.headers,
+                hotels = requests.get(booking_url+"/search", headers=self.headers,
                                       params={
                                           "dest_id": location_data["dest_id"],
                                           "dest_type": location_data["dest_type"],
