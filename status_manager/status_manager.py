@@ -9,7 +9,7 @@ class StatusManager:
 
         Args:
             kafka_manager (KafkaManager): The Kafka manager to use for communication.
-            name (str): The name of the agent.
+            name (str): The name of the agentDVerse.
         """
         self.kafka_manager = kafka_manager
         self.name = name
