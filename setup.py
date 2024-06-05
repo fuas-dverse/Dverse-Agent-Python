@@ -1,13 +1,14 @@
 from setuptools import setup, find_packages
 
+# Read requirements.txt and parse into a list
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 setup(
     name="agentDVerse",
     version="0.1.0",
     packages=find_packages(),
-    install_requires=[
-        "python-slugify",
-        # Add other dependencies here
-    ],
+    install_requires=requirements,
     entry_points={
         "console_scripts": [
             # If we have scripts to expose as CLI commands, specify them here

@@ -1,7 +1,7 @@
 from slugify import slugify
-from ..database_manager import DatabaseManager
-from ..kafka_manager import KafkaManager
-from ..status_manager import StatusManager
+from database_manager import DatabaseManager
+from kafka_manager import KafkaManager
+from status_manager import StatusManager
 
 
 class Agent:
