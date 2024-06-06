@@ -54,7 +54,15 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install Dependencies
+        run: |
+          python -m venv env/
+          source env/bin/activate
+          python -m pip install -r requirements.txt
+
       - name: Run Snyk Security Check
         uses: snyk/actions/python@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          virtual-environment: env/
