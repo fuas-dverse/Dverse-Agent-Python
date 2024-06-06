@@ -1,29 +1,20 @@
+import codecs
+
 from setuptools import setup, find_packages
 
 
 # Read requirements.txt and parse into a list
 def read_requirements(file_path):
     try:
-        with open(file_path, 'rb') as f:
-            content = f.read()
-
-        # Remove BOM if it exists
-        if content.startswith(b'\xef\xbb\xbf'):
-            content = content[3:]
-        elif content.startswith(b'\xff\xfe') or content.startswith(b'\xfe\xff'):
-            content = content[2:]
-
-        # Decode content
-        text = content.decode('utf-8')
-
-        # Split into lines and filter out empty lines
-        return [line.strip() for line in text.splitlines() if line.strip()]
+        with codecs.open(file_path, 'r', 'utf-8-sig') as f:
+            return [line.strip() for line in f.read().splitlines() if line.strip()]
     except Exception as e:
         print(f"Error reading {file_path}: {e}")
         return []
 
 
-requirements = read_requirements('requirements.txt')
+requirements_file_path = 'requirements.txt'
+requirements = read_requirements(requirements_file_path)
 
 setup(
     name="dverse_agent_python",
