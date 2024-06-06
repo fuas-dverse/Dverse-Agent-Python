@@ -46,19 +46,13 @@ jobs:
   synk-security-check:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: setup python
+      - uses: actions/checkout@v4
+      - uses: snyk/actions/setup@master
+      - name: Setup Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.12'
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install -r requirements.txt
-
-      - name: Run Snyk Security Check
-        uses: snyk/actions/python@master
+      - name: Snyk test
+        run: snyk test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
