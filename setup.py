@@ -1,4 +1,4 @@
-import codecs
+import io
 
 from setuptools import setup, find_packages
 
@@ -6,8 +6,8 @@ from setuptools import setup, find_packages
 # Read requirements.txt and parse into a list
 def read_requirements(file_path):
     try:
-        with codecs.open(file_path, 'r', 'utf-8-sig') as f:
-            return [line.strip() for line in f.read().splitlines() if line.strip()]
+        with io.open(file_path, 'r', encoding='utf-8-sig') as f:
+            return f.read().splitlines()
     except Exception as e:
         print(f"Error reading {file_path}: {e}")
         return []
