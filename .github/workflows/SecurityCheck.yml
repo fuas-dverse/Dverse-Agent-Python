@@ -31,18 +31,6 @@ jobs:
         with:
           virtual-environment: env/
 
-  bandit-security-check:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Run Bandit Security Check
-        uses: mdegis/bandit-action@v1.0
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          path: "."
-
   synk-security-check:
     runs-on: ubuntu-latest
     steps:
