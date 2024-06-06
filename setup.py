@@ -1,8 +1,27 @@
 from setuptools import setup, find_packages
 
+
 # Read requirements.txt and parse into a list
-with open('requirements.txt', 'r', encoding='utf-8') as f:
-    requirements = f.read().splitlines()
+def read_requirements(file_path):
+    try:
+        with open(file_path, 'rb') as f:
+            content = f.read()
+
+        # Remove BOM if it exists
+        if content.startswith(b'\xef\xbb\xbf'):
+            content = content[3:]
+
+        # Decode content
+        text = content.decode('utf-8')
+
+        # Split into lines and filter out empty lines
+        return [line.strip() for line in text.splitlines() if line.strip()]
+    except Exception as e:
+        print(f"Error reading {file_path}: {e}")
+        return []
+
+
+requirements = read_requirements('requirements.txt')
 
 setup(
     name="dverse_agent_python",
@@ -27,4 +46,3 @@ setup(
 # First, run : pip install . # This will clone the repository and create a package out of it.
 # Then execute : python setup.py bdist_wheel # This will create a tar.gz. file of the package.
 # You can find the tar file in the dist folder in the same repository as where you are now.
-
