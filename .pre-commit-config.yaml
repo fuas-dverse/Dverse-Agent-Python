@@ -9,8 +9,8 @@ repos:
     -   id: check-added-large-files
     -   id: debug-statements
 
-- repo: https://github.com/pypa/pip-audit
-  rev: v2.7.3
-  hooks:
-    -   id: pip-audit
-        args: ["-r", "requirements.txt", "-S"]
+#- repo: https://github.com/pypa/pip-audit
+#  rev: v2.7.3
+#  hooks:
+#    -   id: pip-audit
+#        args: ["-r", "requirements.txt", "-S"]

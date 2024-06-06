@@ -10,6 +10,8 @@ def read_requirements(file_path):
         # Remove BOM if it exists
         if content.startswith(b'\xef\xbb\xbf'):
             content = content[3:]
+        elif content.startswith(b'\xff\xfe') or content.startswith(b'\xfe\xff'):
+            content = content[2:]
 
         # Decode content
         text = content.decode('utf-8')
