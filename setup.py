@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dverse_agent_python",
-    version="0.1.0",
+    version="v1.0.0",
     packages=find_packages(),
     install_requires=[
         "argon2-cffi==23.1.0",
@@ -108,7 +108,8 @@ setup(
     long_description="A package for creating an Agent for the DVerse platform. "
                      "You can see an example at "
                      "https://github.com/fuas-dverse/dverse-agent-python/blob/main/demo_agent.py "
-                     "for how you can create your own."
+                     "for how you can create your own.",
+    url="https://pypi.org/project/dverse-agent-python/"
 )
 
 # In the dverse-agent-python repository
