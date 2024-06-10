@@ -44,10 +44,15 @@ class Agent:
             initial (dict[str, Any]): Initial message to send to the UI.
             message (dict[str, Any]): The message to send to the UI.
         """
-        initial[self.name] = message
+        formatted_message = {
+            "agent": self.name,
+            **message
+        }
+
+        initial.get("content").append(formatted_message)
 
         # Retrieve the steps from the initial dictionary
-        steps = initial.get("classifier-agentDVerse").get("steps")
+        steps = initial.get("content")[0].get("steps")
 
         step = steps.index(self.name)
 

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dverse_agent_python",
-    version="v1.0.1",
+    version="v1.0.2",
     packages=find_packages(),
     install_requires=[
         "argon2-cffi==23.1.0",
@@ -30,7 +30,6 @@ setup(
         "huggingface-hub==0.23.2",
         "identify==2.5.36",
         "idna==3.7",
-        "intel-openmp==2021.4.0",
         "isodate==0.6.1",
         "Jinja2==3.1.4",
         "joblib==1.4.2",
@@ -40,7 +39,6 @@ setup(
         "marshmallow==3.21.2",
         "mdurl==0.1.2",
         "minio==7.2.7",
-        "mkl==2021.4.0",
         "mpmath==1.3.0",
         "msgpack==1.0.8",
         "networkx==3.3",
@@ -82,7 +80,6 @@ setup(
         "six==1.16.0",
         "sortedcontainers==2.4.0",
         "sympy==1.12.1",
-        "tbb==2021.12.0",
         "text-unidecode==1.3",
         "threadpoolctl==3.5.0",
         "tokenizers==0.19.1",
