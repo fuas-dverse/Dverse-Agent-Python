@@ -104,9 +104,8 @@ class KafkaManager:
             topic (str): The Kafka topic to create
         """
 
-        if "^" not in topic:
-            if topic not in self.__list_topics():
-                self.__create_topic(topic)
+        if "^" not in topic and topic not in self.__list_topics():
+            self.__create_topic(topic)
 
     def __consume_messages(self, topic, callback):
         """
