@@ -1,3 +1,4 @@
+![PyPI - Version](https://img.shields.io/pypi/v/dverse-agent-python)
 ![Known Vulnerabilities](https://snyk.io/test/github/fuas-dverse/dverse-agent-python/badge.svg)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fuas-dverse_dverse-agent-python&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fuas-dverse_dverse-agent-python)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=fuas-dverse_dverse-agent-python&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=fuas-dverse_dverse-agent-python)
