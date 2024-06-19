@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="dverse_agent_python",
-    version="v1.0.2",
+    version="v1.0.3",
     packages=find_packages(),
     install_requires=[
         "argon2-cffi==23.1.0",
@@ -90,7 +90,7 @@ setup(
         "typing_extensions==4.12.1",
         "tzdata==2024.1",
         "ujson==5.10.0",
-        "urllib3==2.2.1",
+        "urllib3==2.2.2",
         "virtualenv==20.26.2",
         "webencodings==0.5.1",
         "wheel==0.43.0"

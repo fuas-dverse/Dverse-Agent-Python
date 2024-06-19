@@ -43,7 +43,7 @@ class KafkaManager:
         headers = {'requestId': key}
         if isinstance(message, dict):
             message = str(message)
-        self.producer.produce(topic, value=message.encode('utf-8'), headers=headers)
+        self.producer.produce(topic, value=json.loads(message), headers=headers)
         self.producer.flush()
 
     def start_consuming(self):
