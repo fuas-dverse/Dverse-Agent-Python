@@ -39,11 +39,7 @@ class KafkaManager:
         """
 
         self.__create_non_existing_topics(topic)
-
-        headers = {'requestId': key}
-        if isinstance(message, dict):
-            message = str(message)
-        self.producer.produce(topic, value=json.loads(message), headers=headers)
+        self.producer.produce(topic, value=json.dumps(message).encode('utf-8'))
         self.producer.flush()
 
     def start_consuming(self):
